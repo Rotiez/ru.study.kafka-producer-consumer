@@ -10,7 +10,7 @@ class KafkaConsumerService {
 
     private val logger: Logger = LoggerFactory.getLogger(KafkaConsumerService::class.java)
 
-    @KafkaListener(topics = ["baeldung"], groupId = "kafka-consumers")
+    @KafkaListener(topics = ["\${spring.kafka.template.default-topic}"], groupId = "\${spring.kafka.consumer.group-id}")
     fun listenGroupFoo(message: String) {
         logger.atInfo().log("Received Message in group kafka-consumers: $message")
     }

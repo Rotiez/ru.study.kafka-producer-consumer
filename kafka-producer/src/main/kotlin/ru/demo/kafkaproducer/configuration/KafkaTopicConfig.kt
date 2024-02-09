@@ -13,6 +13,9 @@ class KafkaTopicConfig {
     @Value("\${spring.kafka.bootstrap-servers}")
     private lateinit var bootstrapAddress: String
 
+    @Value("\${spring.kafka.template.default-topic}")
+    private lateinit var defaultTopic: String
+
     @Bean
     fun kafkaAdmin(): KafkaAdmin {
         val configs = mutableMapOf<String, Any>()
@@ -22,6 +25,6 @@ class KafkaTopicConfig {
 
     @Bean
     fun topic1(): NewTopic {
-        return NewTopic("baeldung", 1, 1.toShort())
+        return NewTopic(defaultTopic, 1, 1.toShort())
     }
 }

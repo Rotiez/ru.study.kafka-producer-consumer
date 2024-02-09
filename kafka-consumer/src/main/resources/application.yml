@@ -1,8 +1,10 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    template:
+      default-topic: ${KAFKA_DEFAULT_TOPIC:rotiez-topic}
     consumer:
       group-id: kafka-consumers
