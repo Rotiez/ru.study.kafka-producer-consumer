@@ -10,6 +10,8 @@ plugins {
 group = "ru.demo"
 version = "0.0.1-SNAPSHOT"
 
+extra["openApiVersion"] = "2.2.0"
+
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
 }
@@ -19,6 +21,7 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:${property("openApiVersion")}")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
